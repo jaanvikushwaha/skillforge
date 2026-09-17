@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interview Preparation — SkillForge</title>
+<meta name="description" content="Master interview preparation, common questions, and frameworks.">
+<style>
+:root{
+  --bg:#07111f; --card:#0d1b2d; --card2:#10243b; --text:#f5f8ff;
+  --muted:#a9b8cc; --accent:#6ee7ff; --accent2:#8b7cff; --line:#1d3149;
+  --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:
+radial-gradient(circle at 10% 10%,rgba(110,231,255,.12),transparent 28%),
+radial-gradient(circle at 90% 15%,rgba(139,124,255,.14),transparent 30%),var(--bg);
+color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(92%,var(--max));margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(7,17,31,.78);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+.navin{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.25rem;font-weight:800;letter-spacing:-.5px}.logo span{color:var(--accent)}
+.links{display:flex;gap:25px;color:var(--muted);font-size:.94rem}.links a{transition:.2s}.links a:hover{color:var(--text)}
+.menu{display:none;background:none;border:0;color:white;font-size:1.5rem}
+.btn{padding:12px 20px;border-radius:12px;font-weight:700;border:1px solid var(--line);transition:.2s;cursor:pointer;display:inline-block}
+.primary{background:var(--accent);color:#04101c;border-color:var(--accent)}.primary:hover{transform:translateY(-2px)}
+section{padding:90px 0}
+.hero{min-height:auto;padding:60px 0;text-align:center}
+.badge{display:inline-flex;gap:8px;align-items:center;padding:7px 13px;border:1px solid var(--line);border-radius:999px;color:var(--accent);background:rgba(110,231,255,.06);font-size:.85rem;margin-bottom:22px}
+h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.1;letter-spacing:-2px;max-width:900px;margin:auto}
+.gradient{background:linear-gradient(100deg,var(--accent),#b49cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:1.1rem;max-width:700px;margin:20px auto}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin:30px 0 20px;letter-spacing:-1px}
+h3{font-size:1.3rem;margin:25px 0 15px;color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:25px;margin:30px 0}
+.card{background:linear-gradient(145deg,rgba(16,36,59,.92),rgba(10,25,42,.92));border:1px solid var(--line);border-radius:20px;padding:25px;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:#315274}
+.icon{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:rgba(110,231,255,.1);font-size:1.35rem;margin-bottom:15px}
+.card h3{margin-top:0;margin-bottom:12px}.card p{color:var(--muted);font-size:.95rem}
+.example-box{background:rgba(110,231,255,.05);border-left:3px solid var(--accent);padding:20px;border-radius:8px;margin:20px 0}
+.example-box strong{color:var(--accent)}
+.qna{border:1px solid var(--line);border-radius:12px;padding:20px;margin:20px 0}
+.qna h4{color:var(--accent);margin-bottom:10px;font-size:1.05rem}
+.qna p{color:var(--muted);line-height:1.8}
+.timeline{display:grid;gap:20px;margin:30px 0}
+.timeline-item{border-left:3px solid var(--accent);padding-left:25px;position:relative}
+.timeline-item:before{content:"";position:absolute;width:15px;height:15px;background:var(--accent);border-radius:50%;left:-9px;top:0}
+.timeline-item h4{color:var(--text);margin-bottom:8px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem;margin-top:60px}
+.footerin{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.social{display:flex;gap:18px}.social a:hover{color:var(--accent)}
+@media(max-width:800px){
+ .links{display:none}.menu{display:block}.grid{grid-template-columns:1fr}.hero{padding:40px 0}h1{letter-spacing:-1.5px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container navin">
+    <a class="logo" href="index.html">Skill<span>Forge</span></a>
+    <div class="links">
+      <a href="index.html">Home</a><a href="portfolio-guide.html">Portfolio</a><a href="resume-guide.html">Resume</a><a href="career-paths.html">Careers</a><a href="skill-roadmaps.html">Skills</a><a href="interview-prep.html">Interview</a><a href="resources.html">Resources</a>
+    </div>
+    <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+  </div>
+  <div id="mobileLinks" class="links container" style="display:none;padding:0 0 18px;flex-direction:column;gap:10px">
+    <a href="index.html">Home</a><a href="portfolio-guide.html">Portfolio</a><a href="resume-guide.html">Resume</a><a href="career-paths.html">Careers</a><a href="skill-roadmaps.html">Skills</a><a href="interview-prep.html">Interview</a><a href="resources.html">Resources</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero">
+ <div class="container">
+  <div class="badge">🎤 Interview Preparation Guide</div>
+  <h1>Master <span class="gradient">Technical & Behavioral Interviews</span></h1>
+  <p class="lead">Common questions, frameworks, and strategies to ace your interview.</p>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>Interview Types You'll Face</h2>
+  
+  <div class="grid">
+   <div class="card">
+    <div class="icon">💼</div>
+    <h3>Behavioral Interview</h3>
+    <p>Questions about your experiences, how you handle situations, and team dynamics. Uses STAR framework.</p>
+   </div>
+   <div class="card">
+    <div class="icon">💻</div>
+    <h3>Technical Interview</h3>
+    <p>Coding problems, system design, debugging. Tests your problem-solving and coding skills.</p>
+   </div>
+   <div class="card">
+    <div class="icon">🤝</div>
+    <h3>Phone Screen</h3>
+    <p>Initial 30–45 min call. Mix of behavioral and technical questions. Filters candidates.</p>
+   </div>
+   <div class="card">
+    <div class="icon">🏢</div>
+    <h3>On-Site Round</h3>
+    <p>4–6 hours with multiple interviews. Deeper technical and team fit assessment.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>The STAR Framework (Behavioral Questions)</h2>
+  <p>Use this for behavioral questions: "Tell me about a time when..."</p>
+
+  <div style="background:rgba(110,231,255,.08);border:1px solid rgba(110,231,255,.2);border-radius:16px;padding:30px;margin:30px 0">
+   <h3 style="margin-top:0;color:var(--accent)">STAR = Situation • Task • Action • Result</h3>
+   <ul style="list-style:none;padding:0;margin-top:20px">
+    <li style="margin:15px 0"><strong style="color:var(--text)">Situation:</strong> <span style="color:var(--muted)">Set the scene. Where were you? Who was involved? What was the context?</span></li>
+    <li style="margin:15px 0"><strong style="color:var(--text)">Task:</strong> <span style="color:var(--muted)">What was the challenge? What did you need to accomplish?</span></li>
+    <li style="margin:15px 0"><strong style="color:var(--text)">Action:</strong> <span style="color:var(--muted)">What specific steps did YOU take? Focus on your contribution.</span></li>
+    <li style="margin:15px 0"><strong style="color:var(--text)">Result:</strong> <span style="color:var(--muted)">What was the outcome? Use numbers if possible: "improved by 30%", "delivered on time"</span></li>
+   </ul>
+  </div>
+
+  <h3>Example STAR Answer:</h3>
+  <div class="example-box">
+   <strong>Q: "Tell me about a time you failed and what you learned"</strong><br><br>
+   <strong>Situation:</strong> "In my sophomore year, I was building a React app for a class project with two teammates. We didn't plan well and everyone was working on different things."<br><br>
+   <strong>Task:</strong> "We had 2 weeks left but the code was a mess and nothing integrated together."<br><br>
+   <strong>Action:</strong> "I took ownership and reorganized our workflow. I set up Git properly, created a component structure, and held daily 15-min sync-ups with the team. I also documented what each person should build."<br><br>
+   <strong>Result:</strong> "We finished on time and got an A. More importantly, I learned that planning upfront saves 10x work later. I now always spend the first 20% of projects planning."
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>Common Behavioral Questions</h2>
+  <p style="color:var(--muted);margin-bottom:20px">Prepare STAR stories for these. Have 2–3 strong examples ready.</p>
+
+  <div class="qna">
+   <h4>1. "Tell me about yourself"</h4>
+   <p>60–90 seconds. Your background, what you're interested in, why this role matters to you. Practice this out loud.</p>
+  </div>
+
+  <div class="qna">
+   <h4>2. "Why do you want to work here?"</h4>
+   <p>Research the company. Name specific projects, values, or problems they solve that excite you.</p>
+  </div>
+
+  <div class="qna">
+   <h4>3. "Tell me about a time you failed"</h4>
+   <p>Show self-awareness. Don't make it sound like a humble brag. Focus on what you learned.</p>
+  </div>
+
+  <div class="qna">
+   <h4>4. "Describe a challenge you overcame"</h4>
+   <p>Show problem-solving. Use STAR. Be specific about YOUR actions, not your team's.</p>
+  </div>
+
+  <div class="qna">
+   <h4>5. "How do you handle disagreement with a teammate?"</h4>
+   <p>Show maturity. Explain how you listen, find common ground, and prioritize the team's goals.</p>
+  </div>
+
+  <div class="qna">
+   <h4>6. "What's a project you're proud of?"</h4>
+   <p>Pick a real project. Explain the problem, your role, and the impact. This is your chance to shine.</p>
+  </div>
+
+  <div class="qna">
+   <h4>7. "What are your strengths and weaknesses?"</h4>
+   <p><strong>Strengths:</strong> Be specific. "I'm detail-oriented — I caught 3 major bugs during code review last month."<br>
+   <strong>Weaknesses:</strong> Pick something real but not critical for the role. Show you're working on it.</p>
+  </div>
+
+  <div class="qna">
+   <h4>8. "Where do you see yourself in 5 years?"</h4>
+   <p>Don't say "your CEO." Instead: "Senior engineer" or "Technical lead" or "Startup founder." Show ambition.</p>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>Technical Interview Tips</h2>
+  
+  <h3>For Coding Problems:</h3>
+  <div class="timeline">
+   <div class="timeline-item">
+    <h4>1. Understand the Problem (2 min)</h4>
+    <p>Ask clarifying questions. "Is the array sorted?" "Can values be negative?" Shows you think deeply.</p>
+   </div>
+   <div class="timeline-item">
+    <h4>2. Think Out Loud (2–3 min)</h4>
+    <p>Explain your approach before coding. Interviewers care about your thinking process, not just the code.</p>
+   </div>
+   <div class="timeline-item">
+    <h4>3. Start Simple (5–10 min)</h4>
+    <p>Write a brute-force solution first. Then optimize. Shows you understand fundamentals.</p>
+   </div>
+   <div class="timeline-item">
+    <h4>4. Code Carefully (10–15 min)</h4>
+    <p>Write clean, readable code. Use meaningful variable names. Explain what you're doing as you go.</p>
+   </div>
+   <div class="timeline-item">
+    <h4>5. Test Your Code (3–5 min)</h4>
+    <p>Walk through an example. Test edge cases: empty input, single element, duplicates.</p>
+   </div>
+   <div class="timeline-item">
+    <h4>6. Discuss Complexity (2 min)</h4>
+    <p>Talk about time and space complexity. Can you optimize further?</p>
+   </div>
+  </div>
+
+  <h3>What Interviewers Actually Care About:</h3>
+  <div class="grid" style="margin-top:20px">
+   <div class="card">
+    <div class="icon">🧠</div>
+    <h3>Problem Solving</h3>
+    <p>Can you break down complex problems? Do you think methodically?</p>
+   </div>
+   <div class="card">
+    <div class="icon">💬</div>
+    <h3>Communication</h3>
+    <p>Can you explain your thinking? Do you ask good questions?</p>
+   </div>
+   <div class="card">
+    <div class="icon">🛠️</div>
+    <h3>Code Quality</h3>
+    <p>Is your code clean and readable? Do you handle edge cases?</p>
+   </div>
+   <div class="card">
+    <div class="icon">📈</div>
+    <h3>Growth Mindset</h3>
+    <p>Can you take feedback? Do you iterate and improve your solution?</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>Resources for Practice</h2>
+  
+  <div class="grid">
+   <div class="card">
+    <div class="icon">💻</div>
+    <h3>LeetCode</h3>
+    <p>Practice coding problems by difficulty. Most common in technical interviews.</p>
+   </div>
+   <div class="card">
+    <div class="icon">📚</div>
+    <h3>Cracking the Coding Interview</h3>
+    <p>Book with 189 problems and deep explanations. Industry standard.</p>
+   </div>
+   <div class="card">
+    <div class="icon">🎙️</div>
+    <h3>Interview.io</h3>
+    <p>Practice mock interviews with real engineers. Get feedback.</p>
+   </div>
+   <div class="card">
+    <div class="icon">📖</div>
+    <h3>System Design Primer</h3>
+    <p>GitHub repo for learning system design (for more senior roles).</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>The Day Before Your Interview</h2>
+  
+  <div class="timeline">
+   <div class="timeline-item">
+    <h4>Research the Company</h4>
+    <p>Know their mission, products, recent news, and culture. Name specific things you admire.</p>
+   </div>
+   <div class="timeline-item">
+    <h4>Review Your Experience</h4>
+    <p>Know your resume cold. Be ready to discuss every project and internship.</p>
+   </div>
+   <div class="timeline-item">
+    <h4>Prepare Questions</h4>
+    <p>Have 3–5 genuine questions about the role, team, or company. Shows interest.</p>
+   </div>
+   <div class="timeline-item">
+    <h4>Practice Out Loud</h4>
+    <p>Do a mock interview with a friend or use mock interview tools.</p>
+   </div>
+   <div class="timeline-item">
+    <h4>Get Good Sleep</h4>
+    <p>Don't stay up late cramming. A clear head is your best asset.</p>
+   </div>
+   <div class="timeline-item">
+    <h4>Dress Appropriately</h4>
+    <p>Know the company dress code. If unsure, business casual. First impressions matter.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>During the Interview</h2>
+  
+  <div class="grid">
+   <div class="card">
+    <div class="icon">😊</div>
+    <h3>Be Genuine</h3>
+    <p>Be yourself. Interviewers can tell if you're faking it. Authenticity wins.</p>
+   </div>
+   <div class="card">
+    <div class="icon">👂</div>
+    <h3>Listen Carefully</h3>
+    <p>Answer the question asked, not the one you prepared. Take a breath before responding.</p>
+   </div>
+   <div class="card">
+    <div class="icon">❓</div>
+    <h3>Ask Questions</h3>
+    <p>Show curiosity and engagement. Don't just wait to answer; drive the conversation.</p>
+   </div>
+   <div class="card">
+    <div class="icon">✨</div>
+    <h3>Show Energy</h3>
+    <p>Be enthusiastic about the role and company. Positive energy is contagious.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>After the Interview</h2>
+  
+  <p style="color:var(--muted);margin-bottom:20px">Don't disappear after the interview. Follow up!</p>
+
+  <div style="background:rgba(110,231,255,.08);border:1px solid rgba(110,231,255,.2);border-radius:16px;padding:25px;margin:30px 0">
+   <h4 style="margin-top:0">Within 24 Hours, Send a Thank-You Email:</h4>
+   <p style="color:var(--muted)">Keep it short (3–4 sentences). Thank them, mention something specific from the conversation, reiterate your interest. Shows professionalism.</p>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <div style="background:rgba(110,231,255,.08);border:1px solid rgba(110,231,255,.2);border-radius:16px;padding:40px;text-align:center">
+   <h2>You've Got This!</h2>
+   <p style="color:var(--muted);font-size:1rem;margin:15px 0">Preparation + practice = confidence. Start practicing mock interviews now. Every interview makes you better.</p>
+   <a class="btn primary" href="resources.html" style="margin-top:20px">Find Interview Resources →</a>
+  </div>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <div class="container footerin">
+  <div>© <span id="year"></span> SkillForge. AI Student Career Hub.</div>
+  <div class="social"><a href="index.html">Home</a><a href="interview-prep.html">Interview</a><a href="resources.html">Resources</a></div>
+ </div>
+</footer>
+
+<script>
+function toggleMenu(){
+ const m=document.getElementById('mobileLinks');
+ m.style.display=m.style.display==='none'?'flex':'none';
+}
+document.getElementById('year').textContent=new Date().getFullYear();
+document.querySelectorAll('#mobileLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mobileLinks').style.display='none'));
+</script>
+</body>
+</html>
