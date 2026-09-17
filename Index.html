@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillForge — AI Student Career Hub</title>
+<meta name="description" content="SkillForge helps students discover skills, projects, AI learning tools, internships and career resources.">
+<style>
+:root{
+  --bg:#07111f; --card:#0d1b2d; --card2:#10243b; --text:#f5f8ff;
+  --muted:#a9b8cc; --accent:#6ee7ff; --accent2:#8b7cff; --line:#1d3149;
+  --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:
+radial-gradient(circle at 10% 10%,rgba(110,231,255,.12),transparent 28%),
+radial-gradient(circle at 90% 15%,rgba(139,124,255,.14),transparent 30%),var(--bg);
+color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(92%,var(--max));margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(7,17,31,.78);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+.navin{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.25rem;font-weight:800;letter-spacing:-.5px}.logo span{color:var(--accent)}
+.links{display:flex;gap:25px;color:var(--muted);font-size:.94rem}.links a{transition:.2s}.links a:hover{color:var(--text)}
+.menu{display:none;background:none;border:0;color:white;font-size:1.5rem}
+.hero{min-height:calc(100vh - 72px);display:grid;place-items:center;text-align:center;padding:80px 0}
+.badge{display:inline-flex;gap:8px;align-items:center;padding:7px 13px;border:1px solid var(--line);border-radius:999px;color:var(--accent);background:rgba(110,231,255,.06);font-size:.85rem;margin-bottom:22px}
+h1{font-size:clamp(2.6rem,7vw,5.3rem);line-height:1.02;letter-spacing:-3px;max-width:900px;margin:auto}
+.gradient{background:linear-gradient(100deg,var(--accent),#b49cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:680px;color:var(--muted);font-size:1.1rem;margin:24px auto 30px}
+.btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{padding:12px 20px;border-radius:12px;font-weight:700;border:1px solid var(--line);transition:.2s;cursor:pointer}
+.primary{background:var(--accent);color:#04101c;border-color:var(--accent)}.primary:hover{transform:translateY(-2px)}
+.secondary{background:rgba(255,255,255,.03)}.secondary:hover{background:rgba(255,255,255,.07)}
+section{padding:90px 0}
+.eyebrow{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:.76rem}
+h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:10px 0 15px;letter-spacing:-1px}
+.lead{color:var(--muted);max-width:700px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}
+.card{background:linear-gradient(145deg,rgba(16,36,59,.92),rgba(10,25,42,.92));border:1px solid var(--line);border-radius:20px;padding:25px;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:#315274}
+.icon{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:rgba(110,231,255,.1);font-size:1.35rem;margin-bottom:17px}
+.card h3{margin-bottom:8px}.card p{color:var(--muted);font-size:.93rem}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.mission{padding:30px;border-radius:24px;border:1px solid var(--line);background:rgba(255,255,255,.025)}
+.checks{display:grid;gap:12px;margin-top:22px}.check{display:flex;gap:10px;color:#dbe7f5}.check b{color:var(--accent)}
+.projects{grid-template-columns:repeat(3,1fr)}
+.project-top{height:145px;border-radius:14px;background:linear-gradient(135deg,#102c44,#1a2450);display:grid;place-items:center;font-size:3rem;margin-bottom:20px}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}.tag{font-size:.72rem;padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.06);color:#bcd0e5}
+.quote{font-size:1rem;color:#dbe7f5;margin-bottom:17px}.person{color:var(--muted);font-size:.85rem}
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px}
+form{display:grid;gap:14px}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+input,textarea{width:100%;background:#081727;border:1px solid var(--line);border-radius:12px;padding:13px;color:white;font:inherit;outline:none}
+textarea{min-height:140px;resize:vertical}input:focus,textarea:focus{border-color:var(--accent)}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem}
+.footerin{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.social{display:flex;gap:18px}.social a:hover{color:var(--accent)}
+.note{font-size:.78rem;color:#8195ad;margin-top:8px}
+@media(max-width:800px){
+ .hero .grid{grid-template-columns:1fr !important;margin-top:35px !important}
+ .links{display:none}.menu{display:block}.grid,.projects{grid-template-columns:1fr}.about,.contact{grid-template-columns:1fr}
+ h1{letter-spacing:-2px}.hero{padding:60px 0}.row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container navin">
+    <a class="logo" href="index.html">Skill<span>Forge</span></a>
+    <div class="links">
+      <a href="index.html">Home</a><a href="portfolio-guide.html">Portfolio</a><a href="resume-guide.html">Resume</a><a href="career-paths.html">Careers</a><a href="skill-roadmaps.html">Skills</a><a href="interview-prep.html">Interview</a><a href="resources.html">Resources</a>
+    </div>
+    <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+  </div>
+  <div id="mobileLinks" class="links container" style="display:none;padding:0 0 18px;flex-direction:column;gap:10px">
+    <a href="index.html">Home</a><a href="portfolio-guide.html">Portfolio</a><a href="resume-guide.html">Resume</a><a href="career-paths.html">Careers</a><a href="skill-roadmaps.html">Skills</a><a href="interview-prep.html">Interview</a><a href="resources.html">Resources</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+ <div class="container">
+   <div class="badge">🤖 AI-powered student career hub</div>
+   <h1>Build Skills. <span class="gradient">Create Projects.</span> Shape Your Future.</h1>
+   <p>SkillForge brings practical learning, project inspiration, AI tools, resume resources and internship guidance together in one student-friendly space.</p>
+   <div class="btns"><a class="btn primary" href="#services">Explore Opportunities →</a><a class="btn secondary" href="portfolio-guide.html">Build Your Portfolio</a></div>
+   <div class="grid" style="max-width:900px;margin:48px auto 0;grid-template-columns:repeat(3,1fr)">
+    <div class="card"><strong>Learn</strong><p class="note">Focused skills & AI tools</p></div>
+    <div class="card"><strong>Build</strong><p class="note">Projects for your portfolio</p></div>
+    <div class="card"><strong>Launch</strong><p class="note">Resume & internship prep</p></div>
+   </div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="container about">
+  <div>
+   <div class="eyebrow">About SkillForge</div>
+   <h2>A practical career companion for students.</h2>
+   <p class="lead">SkillForge is a student-focused platform concept that brings learning, project building and career preparation into one simple experience.</p>
+   <div class="checks">
+    <div class="check">✓ <span><b>For students</b> — from first-year learners to final-year applicants.</span></div>
+    <div class="check">✓ <span><b>Learn by doing</b> — connect every skill with a practical outcome.</span></div>
+    <div class="check">✓ <span><b>Build your profile</b> — turn projects and skills into portfolio evidence.</span></div>
+    <div class="check">✓ <span><b>Career-ready</b> — guidance for resumes, portfolios, applications and interviews.</span></div>
+   </div>
+  </div>
+  <div class="mission">
+   <h3>Why SkillForge exists</h3>
+   <p>Learning is exciting. But the jump from "I know this skill" to "I can prove it to an employer" is where many students get stuck. SkillForge bridges that gap with guidance, examples, and practical next steps at every stage.</p>
+  </div>
+ </div>
+</section>
+
+<section id="services">
+ <div class="container">
+  <div class="eyebrow">Services & Guidance</div>
+  <h2>Everything you need to succeed.</h2>
+  <p class="lead">SkillForge guides you through every stage of your career journey.</p>
+  <div class="grid">
+   <div class="card"><div class="icon">🎨</div><h3>Portfolio Builder</h3><p>Learn how to showcase your projects, skills and work with a compelling portfolio.</p><div class="tags"><span class="tag">Guide</span><span class="tag">Examples</span></div><a class="btn secondary" style="display:inline-block;margin-top:18px" href="portfolio-guide.html">Start Building →</a></div>
+   <div class="card"><div class="icon">📄</div><h3>Resume Guide</h3><p>Master resume formatting, bullet writing, ATS optimization and project-based evidence.</p><div class="tags"><span class="tag">Guide</span><span class="tag">Templates</span></div><a class="btn secondary" style="display:inline-block;margin-top:18px" href="resume-guide.html">Build Resume →</a></div>
+   <div class="card"><div class="icon">🗺️</div><h3>Career Paths</h3><p>Explore career options, required skills, salary ranges and real-world examples.</p><div class="tags"><span class="tag">Pathways</span><span class="tag">Insights</span></div><a class="btn secondary" style="display:inline-block;margin-top:18px" href="career-paths.html">Explore Careers →</a></div>
+   <div class="card"><div class="icon">📚</div><h3>Skill Roadmaps</h3><p>Structured learning paths for popular skills from beginner to advanced levels.</p><div class="tags"><span class="tag">Learning</span><span class="tag">Tracks</span></div><a class="btn secondary" style="display:inline-block;margin-top:18px" href="skill-roadmaps.html">View Roadmaps →</a></div>
+   <div class="card"><div class="icon">💼</div><h3>Interview Prep</h3><p>Practice common questions, learn frameworks and prepare for your first interview.</p><div class="tags"><span class="tag">Practice</span><span class="tag">Strategies</span></div><a class="btn secondary" style="display:inline-block;margin-top:18px" href="interview-prep.html">Prepare Now →</a></div>
+   <div class="card"><div class="icon">🔗</div><h3>Resources</h3><p>Curated tools, courses, communities and platforms to support your learning.</p><div class="tags"><span class="tag">Tools</span><span class="tag">Communities</span></div><a class="btn secondary" style="display:inline-block;margin-top:18px" href="resources.html">View Resources →</a></div>
+  </div>
+ </div>
+</section>
+
+<section id="why">
+ <div class="container">
+  <div class="eyebrow">Why SkillForge</div>
+  <h2>Simple tools. Better learning habits.</h2>
+  <p class="lead">The platform is designed around four principles that keep student career preparation practical.</p>
+  <div class="grid">
+   <div class="card"><div class="icon">🤖</div><h3>AI-powered learning</h3><p>Use AI as a tutor, brainstorming partner and practice assistant while verifying important information yourself.</p></div>
+   <div class="card"><div class="icon">🌱</div><h3>Beginner friendly</h3><p>Start with clear explanations, small tasks and approachable project ideas instead of overwhelming lists.</p></div>
+   <div class="card"><div class="icon">🛠️</div><h3>Practical projects</h3><p>Build real mini-products that demonstrate what you can actually do, not just what you have studied.</p></div>
+   <div class="card"><div class="icon">🚀</div><h3>Career focused</h3><p>Connect learning with resumes, portfolios, applications, communication and interview preparation.</p></div>
+  </div>
+  <div class="mission" style="margin-top:25px;text-align:center">
+   <h3>From learning to opportunity</h3>
+   <p class="lead" style="margin:8px auto 0">Choose a skill → practice it → build a project → document your work → prepare your application.</p>
+  </div>
+ </div>
+</section>
+
+<section id="journey">
+ <div class="container">
+  <div class="eyebrow">Your journey</div>
+  <h2>One idea. Five practical steps.</h2>
+  <div class="grid">
+   <div class="card"><h3>01 · Discover</h3><p>Identify a career direction and the skills commonly used in that path.</p></div>
+   <div class="card"><h3>02 · Learn</h3><p>Choose focused resources and build a consistent learning routine.</p></div>
+   <div class="card"><h3>03 · Build</h3><p>Create a small project that proves your understanding through practice.</p></div>
+   <div class="card"><h3>04 · Showcase</h3><p>Document your work with a portfolio, README, and clear project description.</p></div>
+   <div class="card"><h3>05 · Apply</h3><p>Use your evidence to improve your resume, portfolio and internship applications.</p></div>
+  </div>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <div class="container footerin">
+  <div>© <span id="year"></span> SkillForge. AI Student Career Hub.</div>
+  <div class="social"><a href="index.html">Home</a><a href="portfolio-guide.html">Portfolio</a><a href="resources.html">Resources</a></div>
+ </div>
+</footer>
+
+<script>
+function toggleMenu(){
+ const m=document.getElementById('mobileLinks');
+ m.style.display=m.style.display==='none'?'flex':'none';
+}
+document.getElementById('year').textContent=new Date().getFullYear();
+document.querySelectorAll('#mobileLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mobileLinks').style.display='none'));
+</script>
+</body>
+</html>
