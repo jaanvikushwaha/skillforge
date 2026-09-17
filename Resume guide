@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Building Guide — SkillForge</title>
+<meta name="description" content="Master resume writing, formatting, and optimization for student applications.">
+<style>
+:root{
+  --bg:#07111f; --card:#0d1b2d; --card2:#10243b; --text:#f5f8ff;
+  --muted:#a9b8cc; --accent:#6ee7ff; --accent2:#8b7cff; --line:#1d3149;
+  --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:
+radial-gradient(circle at 10% 10%,rgba(110,231,255,.12),transparent 28%),
+radial-gradient(circle at 90% 15%,rgba(139,124,255,.14),transparent 30%),var(--bg);
+color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(92%,var(--max));margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(7,17,31,.78);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+.navin{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.25rem;font-weight:800;letter-spacing:-.5px}.logo span{color:var(--accent)}
+.links{display:flex;gap:25px;color:var(--muted);font-size:.94rem}.links a{transition:.2s}.links a:hover{color:var(--text)}
+.menu{display:none;background:none;border:0;color:white;font-size:1.5rem}
+.btn{padding:12px 20px;border-radius:12px;font-weight:700;border:1px solid var(--line);transition:.2s;cursor:pointer;display:inline-block}
+.primary{background:var(--accent);color:#04101c;border-color:var(--accent)}.primary:hover{transform:translateY(-2px)}
+.secondary{background:rgba(255,255,255,.03)}.secondary:hover{background:rgba(255,255,255,.07)}
+section{padding:90px 0}
+.hero{min-height:auto;padding:60px 0;text-align:center}
+.badge{display:inline-flex;gap:8px;align-items:center;padding:7px 13px;border:1px solid var(--line);border-radius:999px;color:var(--accent);background:rgba(110,231,255,.06);font-size:.85rem;margin-bottom:22px}
+h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.1;letter-spacing:-2px;max-width:900px;margin:auto}
+.gradient{background:linear-gradient(100deg,var(--accent),#b49cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:1.1rem;max-width:700px;margin:20px auto}
+.eyebrow{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:.76rem}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin:30px 0 20px;letter-spacing:-1px}
+h3{font-size:1.3rem;margin:25px 0 15px;color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:25px;margin:30px 0}
+.card{background:linear-gradient(145deg,rgba(16,36,59,.92),rgba(10,25,42,.92));border:1px solid var(--line);border-radius:20px;padding:25px;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:#315274}
+.icon{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:rgba(110,231,255,.1);font-size:1.35rem;margin-bottom:15px}
+.card h3{margin-top:0;margin-bottom:12px}.card p{color:var(--muted);font-size:.95rem}
+.dos{background:rgba(76,175,80,.08);border-left:4px solid #4caf50;padding:20px;border-radius:12px;margin:20px 0}
+.donts{background:rgba(244,67,54,.08);border-left:4px solid #f44336;padding:20px;border-radius:12px;margin:20px 0}
+.dos h4,.donts h4{color:var(--text);margin-bottom:12px;font-size:1.05rem}
+.dos ul,.donts ul{list-style:none;padding-left:20px}
+.dos li,.donts li{margin:8px 0;padding-left:20px;position:relative}
+.dos li:before{content:"✓";position:absolute;left:0;color:#4caf50;font-weight:bold}
+.donts li:before{content:"✗";position:absolute;left:0;color:#f44336;font-weight:bold}
+.code-block{background:#081727;border:1px solid var(--line);border-radius:12px;padding:20px;overflow-x:auto;margin:20px 0;font-family:Courier,monospace;font-size:.9rem;line-height:1.8}
+.code-block code{color:#6ee7ff}
+.example-box{background:rgba(110,231,255,.05);border:1px solid rgba(110,231,255,.2);border-radius:12px;padding:20px;margin:20px 0}
+.example-box strong{color:var(--accent)}
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0}
+.comparison-item{border-radius:12px;padding:15px}
+.bad{background:rgba(244,67,54,.08);border:1px solid rgba(244,67,54,.3)}
+.good{background:rgba(76,175,80,.08);border:1px solid rgba(76,175,80,.3)}
+.bad h4{color:#ff9999;margin-bottom:10px}
+.good h4{color:#99ff99;margin-bottom:10px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem;margin-top:60px}
+.footerin{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.social{display:flex;gap:18px}.social a:hover{color:var(--accent)}
+.note{font-size:.78rem;color:#8195ad;margin-top:8px}
+@media(max-width:800px){
+ .links{display:none}.menu{display:block}.grid,.comparison{grid-template-columns:1fr}.hero{padding:40px 0}h1{letter-spacing:-1.5px}h2{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container navin">
+    <a class="logo" href="index.html">Skill<span>Forge</span></a>
+    <div class="links">
+      <a href="index.html">Home</a><a href="portfolio-guide.html">Portfolio</a><a href="resume-guide.html">Resume</a><a href="career-paths.html">Careers</a><a href="skill-roadmaps.html">Skills</a><a href="interview-prep.html">Interview</a><a href="resources.html">Resources</a>
+    </div>
+    <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+  </div>
+  <div id="mobileLinks" class="links container" style="display:none;padding:0 0 18px;flex-direction:column;gap:10px">
+    <a href="index.html">Home</a><a href="portfolio-guide.html">Portfolio</a><a href="resume-guide.html">Resume</a><a href="career-paths.html">Careers</a><a href="skill-roadmaps.html">Skills</a><a href="interview-prep.html">Interview</a><a href="resources.html">Resources</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero">
+ <div class="container">
+  <div class="badge">📄 Complete Resume Building Guide</div>
+  <h1>Write a <span class="gradient">Resume That Gets Interviews</span></h1>
+  <p class="lead">Master formatting, bullet writing, ATS optimization, and project-based evidence.</p>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>The Resume Formula That Works</h2>
+  <p>A strong student resume follows this structure:</p>
+  
+  <div style="background:rgba(110,231,255,.08);border:1px solid rgba(110,231,255,.2);border-radius:16px;padding:30px;margin:30px 0;text-align:center">
+   <h3 style="margin-top:0">Header → Education → Experience → Projects → Skills → Links</h3>
+   <p style="color:var(--muted);margin-top:15px">Simple, organized, and scannable in 6 seconds.</p>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>Section Breakdown: What Each Part Should Say</h2>
+  
+  <h3>1. Header (Name & Contact)</h3>
+  <div class="example-box">
+   <strong>Format:</strong><br><br>
+   Alex Chen<br>
+   (555) 123-4567 | alex.chen@email.com | LinkedIn.com/in/alexchen | GitHub.com/alexchen | Portfolio.com
+  </div>
+  <p><strong>✓ Do:</strong> Include all ways to contact you. Keep it clean — one line is best.</p>
+  <p><strong>✗ Don't:</strong> Include photo, personal pronouns, or "Objective" statement.</p>
+
+  <h3>2. Education</h3>
+  <div class="example-box">
+   <strong>Format:</strong><br><br>
+   Bachelor of Science in Computer Science<br>
+   University of California, Berkeley | Graduating May 2024<br>
+   GPA: 3.7 | Relevant Coursework: Data Structures, Algorithms, Web Development, Databases
+  </div>
+  <p><strong>✓ Do:</strong> Include graduation date, GPA (if 3.5+), relevant courses, and honors.</p>
+  <p><strong>✗ Don't:</strong> List high school. If you have work experience, education goes second.</p>
+
+  <h3>3. Experience / Projects (Most Important)</h3>
+  <p>Use this format for internships, part-time work, and projects:</p>
+  <div class="code-block">
+   <code><strong>[Company/Project Name] — [Your Role]</strong> | [Dates]<br>
+   • [Action verb] [what you did] [result/impact with number]<br>
+   • [Action verb] [what you did] [result/impact with number]<br>
+   • [Action verb] [what you did] [result/impact with number]</code>
+  </div>
+
+  <h3>4. Skills</h3>
+  <div class="example-box">
+   <strong>Format:</strong><br><br>
+   Languages: Python, JavaScript, Java, SQL<br>
+   Frontend: React, Vue.js, Tailwind CSS, HTML/CSS<br>
+   Backend: Node.js, Express, Django<br>
+   Tools & Platforms: Git, Docker, AWS, Figma
+  </div>
+  <p><strong>✓ Do:</strong> Group by category. Only list skills you've actually used.</p>
+
+  <h3>5. Links Section</h3>
+  <div class="example-box">
+   <strong>Optional but recommended:</strong><br><br>
+   Portfolio: portfolio.com | GitHub: github.com/username
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>The Secret: Strong Bullet Points</h2>
+  <p>Your bullet points are everything. They should tell a story of what you accomplished.</p>
+
+  <h3>Formula: [Action Verb] + [What You Did] + [Measurable Result]</h3>
+
+  <div class="comparison">
+   <div class="comparison-item bad">
+    <h4>❌ Weak Bullet</h4>
+    <p>"Worked on React projects"<br><br>
+    → Vague. No impact. Could mean anything.</p>
+   </div>
+   <div class="comparison-item good">
+    <h4>✅ Strong Bullet</h4>
+    <p>"Built real-time dashboard in React that reduced data load time by 40%"<br><br>
+    → Specific. Measurable. Shows value.</p>
+   </div>
+  </div>
+
+  <div class="comparison">
+   <div class="comparison-item bad">
+    <h4>❌ Weak Bullet</h4>
+    <p>"Used Python for data analysis"<br><br>
+    → Passive. No context. No result.</p>
+   </div>
+   <div class="comparison-item good">
+    <h4>✅ Strong Bullet</h4>
+    <p>"Analyzed 500K+ customer records with Python to identify trends, enabling 15% increase in sales"<br><br>
+    → Active. Specific. Shows impact.</p>
+   </div>
+  </div>
+
+  <h3>Action Verbs to Use:</h3>
+  <p style="margin:15px 0">
+   Built • Designed • Developed • Implemented • Created • Optimized • Reduced • Increased • Automated • Improved • Launched • Managed • Collaborated • Solved • Analyzed • Debugged
+  </p>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>How to Write Project Bullets (For Students)</h2>
+  
+  <p>No internship yet? That's fine. Use projects and academic work.</p>
+
+  <h3>Template for Project Bullets:</h3>
+  <div class="code-block">
+   <code><strong>Project: [Project Name]</strong> | [Tech Stack] | [Link]<br>
+   • Developed [what you built] that [what it does/solves]<br>
+   • Implemented [specific feature] using [tech], improving [metric] by X%<br>
+   • Deployed to [platform], serving [number] users/requests</code>
+  </div>
+
+  <h3>Real Example:</h3>
+  <div class="example-box">
+   <strong>Project: Smart Study Tracker</strong> | React, Node.js, MongoDB | github.com/yourname<br>
+   • Developed full-stack web app helping students track study goals with real-time progress visualization<br>
+   • Built REST API backend handling 1000+ daily requests; optimized queries reducing response time by 45%<br>
+   • Designed responsive UI with React and Tailwind CSS; tested on 3 browsers and mobile devices<br>
+   • Deployed to Vercel; accumulated 200+ active beta testers with 4.8/5 satisfaction rating
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>ATS Optimization (So Computers Don't Filter You Out)</h2>
+  
+  <p>Applicant Tracking Systems scan your resume before humans see it. Make sure you pass the robot test.</p>
+
+  <div class="dos">
+   <h4>✓ ATS-Friendly</h4>
+   <ul>
+    <li><strong>Use standard formatting:</strong> Arial, Calibri, or Times New Roman (avoid fancy fonts)</li>
+    <li><strong>Use .docx or .pdf</strong> (check the job posting for format requirements)</li>
+    <li><strong>Simple section headers:</strong> Education, Experience, Skills (not creative names)</li>
+    <li><strong>Match job keywords:</strong> If they ask for "React," say "React" (not "JavaScript frameworks")</li>
+    <li><strong>Use bullet points</strong> not paragraphs</li>
+    <li><strong>No text boxes, images, or graphics</strong> — ATS can't read them</li>
+    <li><strong>One column layout</strong> — two columns confuse ATS</li>
+   </ul>
+  </div>
+
+  <div class="donts">
+   <h4>✗ ATS-Unfriendly</h4>
+   <ul>
+    <li><strong>Fancy fonts or colors</strong> — ATS reads plain text only</li>
+    <li><strong>Tables or text boxes</strong> — Use bullet points instead</li>
+    <li><strong>Headers like "Core Competencies"</strong> — Stick to standard headers</li>
+    <li><strong>Custom graphics or logos</strong> — ATS skips them</li>
+    <li><strong>Abbreviations ATS won't recognize</strong> — Write it out first, then abbreviate</li>
+    <li><strong>Inconsistent formatting</strong> — Use consistent spacing and bullet style</li>
+   </ul>
+  </div>
+
+  <p style="margin-top:30px;color:var(--muted)"><strong>Pro tip:</strong> Before submitting, copy your resume text into Notepad. If it still reads well and makes sense, you're good for ATS.</p>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>Resume Length & Format</h2>
+  
+  <div class="grid">
+   <div class="card">
+    <h3>Students (0–1 Year Experience)</h3>
+    <p><strong>Length:</strong> 1 page<br><br>
+    <strong>Focus:</strong> Education, projects, skills, internships/part-time work<br><br>
+    <strong>Rule:</strong> Keep it SHORT. Quality over quantity.</p>
+   </div>
+   <div class="card">
+    <h3>Recent Grads (1–3 Years)</h3>
+    <p><strong>Length:</strong> 1 page (sometimes 1.5)<br><br>
+    <strong>Focus:</strong> Internships, projects, full-time work<br><br>
+    <strong>Rule:</strong> Still keep it tight. Recruiters spend 6 seconds scanning.</p>
+   </div>
+  </div>
+
+  <h3>Formatting Tips:</h3>
+  <ul style="margin-left:20px;margin-bottom:20px">
+   <li><strong>Margins:</strong> 0.5–1 inch on all sides</li>
+   <li><strong>Font size:</strong> 10–12pt for body text, 14–16pt for name</li>
+   <li><strong>Line spacing:</strong> 1.0 or 1.15 (single or slightly more)</li>
+   <li><strong>Bold:</strong> Company names, project titles, section headers</li>
+   <li><strong>Dates:</strong> Align to right or use consistent format (e.g., "May 2023 – Aug 2023")</li>
+  </ul>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>Common Mistakes to Avoid</h2>
+  
+  <div style="background:rgba(244,67,54,.08);border-left:4px solid #f44336;padding:20px;border-radius:12px;margin:20px 0">
+   <ul style="list-style:none;padding-left:20px">
+    <li style="margin:10px 0"><strong>❌ Typos or grammar mistakes</strong> — Proofread 3 times. Use Grammarly.</li>
+    <li style="margin:10px 0"><strong>❌ "Objective" statements</strong> — Skip it. They're outdated.</li>
+    <li style="margin:10px 0"><strong>❌ Personal info like age or photo</strong> — Only include name and contact.</li>
+    <li style="margin:10px 0"><strong>❌ Lying or exaggerating</strong> — They WILL verify. Be honest.</li>
+    <li style="margin:10px 0"><strong>❌ Vague bullet points</strong> — Use numbers and specific results.</li>
+    <li style="margin:10px 0"><strong>❌ Inconsistent formatting</strong> — Same font, same bullets, same date format throughout.</li>
+    <li style="margin:10px 0"><strong>❌ Not tailoring your resume</strong> — Adjust for each job, highlight relevant skills.</li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>Tailoring Your Resume for Each Job</h2>
+  
+  <p>Don't send the same resume to every job. Spend 5 minutes customizing it.</p>
+
+  <h3>How to Tailor:</h3>
+  <ol style="margin-left:20px;margin-bottom:20px">
+   <li><strong>Read the job description.</strong> Highlight 5–10 key skills they want.</li>
+   <li><strong>Reorder your experience.</strong> Put the most relevant work first.</li>
+   <li><strong>Match keywords.</strong> If they say "React," use "React" (not "frontend frameworks").</li>
+   <li><strong>Emphasize relevant projects.</strong> Move your best relevant project higher.</li>
+   <li><strong>Add relevant skills to your Skills section.</strong> Make sure your top skills match their needs.</li>
+  </ol>
+
+  <div class="example-box">
+   <strong>Example:</strong><br><br>
+   Job posting mentions: React, API design, database optimization<br><br>
+   <strong>You should:</strong><br>
+   — Move React projects to top<br>
+   — Highlight bullet about "optimized database queries"<br>
+   — Make sure React is listed in your Skills section
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>Resume Template Structure</h2>
+  
+  <div class="code-block">
+   <code><strong>[YOUR NAME]</strong><br>
+[Phone] | [Email] | [LinkedIn] | [GitHub/Portfolio]<br><br>
+<strong>EDUCATION</strong><br>
+B.S. Computer Science | University Name | Grad: May 2024<br>
+GPA: 3.7 | Relevant Coursework: Data Structures, Algorithms, Web Dev<br><br>
+<strong>EXPERIENCE</strong><br>
+[Internship/Project/Work] | [Company/Your Name] | [Dates]<br>
+• [Action verb] [what you did] [result/number]<br>
+• [Action verb] [what you did] [result/number]<br><br>
+<strong>PROJECTS</strong><br>
+[Project Name] | [Tech Stack] | [GitHub/Link]<br>
+• [What you built] [impact/result]<br><br>
+<strong>SKILLS</strong><br>
+Languages: Python, JavaScript<br>
+Frontend: React, Tailwind CSS<br>
+Backend: Node.js, MongoDB</code>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>Final Checklist Before Submitting</h2>
+  
+  <div style="background:rgba(139,124,255,.08);border-left:4px solid var(--accent2);padding:20px;border-radius:12px;margin:30px 0">
+   <ul style="list-style:none;padding:0">
+    <li style="margin:12px 0;display:flex;align-items:center"><span style="color:var(--accent);margin-right:10px;font-weight:bold">□</span> No typos or grammar errors (read it aloud)</li>
+    <li style="margin:12px 0;display:flex;align-items:center"><span style="color:var(--accent);margin-right:10px;font-weight:bold">□</span> All dates are consistent and correct</li>
+    <li style="margin:12px 0;display:flex;align-items:center"><span style="color:var(--accent);margin-right:10px;font-weight:bold">□</span> Bullet points start with action verbs</li>
+    <li style="margin:12px 0;display:flex;align-items:center"><span style="color:var(--accent);margin-right:10px;font-weight:bold">□</span> Every bullet includes a specific result or number</li>
+    <li style="margin:12px 0;display:flex;align-items:center"><span style="color:var(--accent);margin-right:10px;font-weight:bold">□</span> Formatting is consistent (fonts, spacing, bullets)</li>
+    <li style="margin:12px 0;display:flex;align-items:center"><span style="color:var(--accent);margin-right:10px;font-weight:bold">□</span> Contact info is correct and complete</li>
+    <li style="margin:12px 0;display:flex;align-items:center"><span style="color:var(--accent);margin-right:10px;font-weight:bold">□</span> Customized for the job (keywords match job posting)</li>
+    <li style="margin:12px 0;display:flex;align-items:center"><span style="color:var(--accent);margin-right:10px;font-weight:bold">□</span> Fits on 1 page (or 1.5 max if you have experience)</li>
+    <li style="margin:12px 0;display:flex;align-items:center"><span style="color:var(--accent);margin-right:10px;font-weight:bold">□</span> Saved as PDF or .docx (check job posting)</li>
+    <li style="margin:12px 0;display:flex;align-items:center"><span style="color:var(--accent);margin-right:10px;font-weight:bold">□</span> Filename is professional: "FirstName_LastName_Resume.pdf"</li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <div style="background:rgba(110,231,255,.08);border:1px solid rgba(110,231,255,.2);border-radius:16px;padding:40px;text-align:center">
+   <h2>Ready to Write?</h2>
+   <p style="color:var(--muted);font-size:1rem;margin:15px 0">Use the template and tips above to build your first (or next) resume. Start this week — it's easier than you think.</p>
+   <a class="btn primary" href="index.html" style="margin-top:20px">Back to Home →</a>
+  
