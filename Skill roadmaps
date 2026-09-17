@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skill Roadmaps — SkillForge</title>
+<meta name="description" content="Structured learning paths for popular tech skills.">
+<style>
+:root{
+  --bg:#07111f; --card:#0d1b2d; --card2:#10243b; --text:#f5f8ff;
+  --muted:#a9b8cc; --accent:#6ee7ff; --accent2:#8b7cff; --line:#1d3149;
+  --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:
+radial-gradient(circle at 10% 10%,rgba(110,231,255,.12),transparent 28%),
+radial-gradient(circle at 90% 15%,rgba(139,124,255,.14),transparent 30%),var(--bg);
+color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(92%,var(--max));margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(7,17,31,.78);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+.navin{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.25rem;font-weight:800;letter-spacing:-.5px}.logo span{color:var(--accent)}
+.links{display:flex;gap:25px;color:var(--muted);font-size:.94rem}.links a{transition:.2s}.links a:hover{color:var(--text)}
+.menu{display:none;background:none;border:0;color:white;font-size:1.5rem}
+.btn{padding:12px 20px;border-radius:12px;font-weight:700;border:1px solid var(--line);transition:.2s;cursor:pointer;display:inline-block}
+.primary{background:var(--accent);color:#04101c;border-color:var(--accent)}.primary:hover{transform:translateY(-2px)}
+section{padding:90px 0}
+.hero{min-height:auto;padding:60px 0;text-align:center}
+.badge{display:inline-flex;gap:8px;align-items:center;padding:7px 13px;border:1px solid var(--line);border-radius:999px;color:var(--accent);background:rgba(110,231,255,.06);font-size:.85rem;margin-bottom:22px}
+h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.1;letter-spacing:-2px;max-width:900px;margin:auto}
+.gradient{background:linear-gradient(100deg,var(--accent),#b49cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:1.1rem;max-width:700px;margin:20px auto}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin:30px 0 20px;letter-spacing:-1px}
+h3{font-size:1.3rem;margin:25px 0 15px;color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:25px;margin:30px 0}
+.card{background:linear-gradient(145deg,rgba(16,36,59,.92),rgba(10,25,42,.92));border:1px solid var(--line);border-radius:20px;padding:25px;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:#315274}
+.icon{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:rgba(110,231,255,.1);font-size:1.35rem;margin-bottom:15px}
+.card h3{margin-top:0;margin-bottom:12px}.card p{color:var(--muted);font-size:.95rem}
+.roadmap{border:1px solid var(--line);border-radius:16px;padding:25px;margin:30px 0}
+.stage{margin-bottom:25px}
+.stage h4{color:var(--accent);font-size:1.1rem;margin-bottom:10px}
+.stage-level{background:rgba(255,255,255,.03);padding:2px 8px;border-radius:4px;font-size:.85rem;color:var(--muted);display:inline-block;margin-bottom:8px}
+.stage ul{list-style:none;padding-left:0;margin:10px 0}
+.stage li{padding:6px 0;padding-left:20px;position:relative;color:var(--muted)}
+.stage li:before{content:"→";position:absolute;left:0;color:var(--accent)}
+.duration{background:rgba(139,124,255,.1);padding:8px 12px;border-radius:8px;font-size:.9rem;color:var(--accent2);display:inline-block;margin:10px 0}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem;margin-top:60px}
+.footerin{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.social{display:flex;gap:18px}.social a:hover{color:var(--accent)}
+@media(max-width:800px){
+ .links{display:none}.menu{display:block}.grid{grid-template-columns:1fr}.hero{padding:40px 0}h1{letter-spacing:-1.5px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container navin">
+    <a class="logo" href="index.html">Skill<span>Forge</span></a>
+    <div class="links">
+      <a href="index.html">Home</a><a href="portfolio-guide.html">Portfolio</a><a href="resume-guide.html">Resume</a><a href="career-paths.html">Careers</a><a href="skill-roadmaps.html">Skills</a><a href="interview-prep.html">Interview</a><a href="resources.html">Resources</a>
+    </div>
+    <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+  </div>
+  <div id="mobileLinks" class="links container" style="display:none;padding:0 0 18px;flex-direction:column;gap:10px">
+    <a href="index.html">Home</a><a href="portfolio-guide.html">Portfolio</a><a href="resume-guide.html">Resume</a><a href="career-paths.html">Careers</a><a href="skill-roadmaps.html">Skills</a><a href="interview-prep.html">Interview</a><a href="resources.html">Resources</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero">
+ <div class="container">
+  <div class="badge">📚 Structured Learning Paths</div>
+  <h1>Build <span class="gradient">Skill Roadmaps</span> You Can Follow</h1>
+  <p class="lead">Step-by-step guides for learning popular tech skills, from beginner to advanced.</p>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>How to Use These Roadmaps</h2>
+  <p style="color:var(--muted);margin-bottom:20px">Pick a skill below. Follow the stages in order. Build a project at each stage to reinforce learning.</p>
+  
+  <div class="grid">
+   <div class="card">
+    <div class="icon">⏱️</div>
+    <h3>Realistic Timeline</h3>
+    <p>Each roadmap shows how long it typically takes to reach proficiency.</p>
+   </div>
+   <div class="card">
+    <div class="icon">🛠️</div>
+    <h3>Learn by Building</h3>
+    <p>Theory alone won't stick. Build real projects at each stage.</p>
+   </div>
+   <div class="card">
+    <div class="icon">✅</div>
+    <h3>Clear Goals</h3>
+    <p>Know exactly what "proficient" means at each level.</p>
+   </div>
+   <div class="card">
+    <div class="icon">🎯</div>
+    <h3>Career Ready</h3>
+    <p>Reach the "Advanced" stage and you're ready for internships or junior roles.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>React.js Roadmap</h2>
+  
+  <div class="roadmap">
+   <div class="stage">
+    <h4>Stage 1: Fundamentals</h4>
+    <div class="stage-level">4–6 weeks</div>
+    <ul>
+     <li>JavaScript fundamentals (variables, functions, ES6 syntax)</li>
+     <li>HTML & CSS basics</li>
+     <li>React basics: Components, JSX, Props</li>
+     <li>State & Hooks (useState, useEffect)</li>
+     <li>Conditional rendering & Lists</li>
+    </ul>
+    <p style="margin-top:10px;color:var(--muted);font-size:.9rem"><strong>Project:</strong> Build a simple Todo App or Counter</p>
+   </div>
+
+   <div class="stage">
+    <h4>Stage 2: Intermediate</h4>
+    <div class="stage-level">6–8 weeks</div>
+    <ul>
+     <li>Form handling & validation</li>
+     <li>Fetching data from APIs</li>
+     <li>Component composition patterns</li>
+     <li>Routing (React Router)</li>
+     <li>State management basics</li>
+    </ul>
+    <p style="margin-top:10px;color:var(--muted);font-size:.9rem"><strong>Project:</strong> Build a Weather App or Movie Database</p>
+   </div>
+
+   <div class="stage">
+    <h4>Stage 3: Advanced</h4>
+    <div class="stage-level">8–12 weeks</div>
+    <ul>
+     <li>Advanced hooks (useContext, useReducer)</li>
+     <li>Performance optimization</li>
+     <li>Testing (Jest, React Testing Library)</li>
+     <li>Build tools (Webpack, Vite)</li>
+     <li>TypeScript with React</li>
+    </ul>
+    <p style="margin-top:10px;color:var(--muted);font-size:.9rem"><strong>Project:</strong> Build a Full Dashboard or E-commerce interface</p>
+   </div>
+
+   <div class="duration">⏱️ Total Time: 4–6 months | Ready for: Junior Frontend roles</div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>Python Roadmap</h2>
+  
+  <div class="roadmap">
+   <div class="stage">
+    <h4>Stage 1: Core Python</h4>
+    <div class="stage-level">3–4 weeks</div>
+    <ul>
+     <li>Variables, data types, operators</li>
+     <li>Control flow (if/else, loops)</li>
+     <li>Functions & modules</li>
+     <li>Lists, dictionaries, tuples</li>
+     <li>File I/O</li>
+    </ul>
+    <p style="margin-top:10px;color:var(--muted);font-size:.9rem"><strong>Project:</strong> Build a CLI app (expense tracker, quiz game)</p>
+   </div>
+
+   <div class="stage">
+    <h4>Stage 2: Intermediate Python</h4>
+    <div class="stage-level">4–6 weeks</div>
+    <ul>
+     <li>Object-Oriented Programming (classes, inheritance)</li>
+     <li>Working with APIs</li>
+     <li>Data manipulation with Pandas</li>
+     <li>Web frameworks (Flask or Django basics)</li>
+     <li>Database fundamentals (SQL)</li>
+    </ul>
+    <p style="margin-top:10px;color:var(--muted);font-size:.9rem"><strong>Project:</strong> Build a simple web app or data analysis tool</p>
+   </div>
+
+   <div class="stage">
+    <h4>Stage 3: Advanced / Specialization</h4>
+    <div class="stage-level">6–8 weeks</div>
+    <ul>
+     <li>Web framework mastery (Django, FastAPI)</li>
+     <li>Advanced data structures & algorithms</li>
+     <li>Testing & debugging</li>
+     <li>Deployment (Docker, cloud platforms)</li>
+     <li>Choose specialization: Backend, Data Science, or Automation</li>
+    </ul>
+    <p style="margin-top:10px;color:var(--muted);font-size:.9rem"><strong>Project:</strong> Build a production-ready web service or data pipeline</p>
+   </div>
+
+   <div class="duration">⏱️ Total Time: 3–4 months | Ready for: Backend roles, Data Science roles</div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>Web Development (Full-Stack) Roadmap</h2>
+  
+  <div class="roadmap">
+   <div class="stage">
+    <h4>Stage 1: Frontend Basics</h4>
+    <div class="stage-level">6–8 weeks</div>
+    <ul>
+     <li>HTML & CSS fundamentals</li>
+     <li>JavaScript ES6+</li>
+     <li>Responsive design</li>
+     <li>React basics</li>
+    </ul>
+    <p style="margin-top:10px;color:var(--muted);font-size:.9rem"><strong>Project:</strong> Build a portfolio website</p>
+   </div>
+
+   <div class="stage">
+    <h4>Stage 2: Backend Basics</h4>
+    <div class="stage-level">6–8 weeks</div>
+    <ul>
+     <li>Node.js & Express.js</li>
+     <li>Databases (MongoDB or PostgreSQL)</li>
+     <li>REST APIs</li>
+     <li>Authentication & security basics</li>
+    </ul>
+    <p style="margin-top:10px;color:var(--muted);font-size:.9rem"><strong>Project:</strong> Build a simple API backend</p>
+   </div>
+
+   <div class="stage">
+    <h4>Stage 3: Connect It All</h4>
+    <div class="stage-level">6–8 weeks</div>
+    <ul>
+     <li>Full-stack project with React + Node</li>
+     <li>Database design & optimization</li>
+     <li>Deployment (Heroku, Vercel, AWS)</li>
+     <li>Testing & error handling</li>
+     <li>Performance & security best practices</li>
+    </ul>
+    <p style="margin-top:10px;color:var(--muted);font-size:.9rem"><strong>Project:</strong> Build a complete web app (e-commerce, social app, SaaS prototype)</p>
+   </div>
+
+   <div class="duration">⏱️ Total Time: 4–6 months | Ready for: Full-Stack Junior roles</div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>Data Science Roadmap</h2>
+  
+  <div class="roadmap">
+   <div class="stage">
+    <h4>Stage 1: Math & Python Foundations</h4>
+    <div class="stage-level">6–8 weeks</div>
+    <ul>
+     <li>Linear algebra & statistics basics</li>
+     <li>Python fundamentals</li>
+     <li>NumPy & Pandas</li>
+     <li>Data visualization (Matplotlib, Seaborn)</li>
+    </ul>
+    <p style="margin-top:10px;color:var(--muted);font-size:.9rem"><strong>Project:</strong> Analyze a dataset and create visualizations</p>
+   </div>
+
+   <div class="stage">
+    <h4>Stage 2: Machine Learning Basics</h4>
+    <div class="stage-level">8–10 weeks</div>
+    <ul>
+     <li>ML algorithms (classification, regression, clustering)</li>
+     <li>Scikit-learn</li>
+     <li>Model evaluation & validation</li>
+     <li>Feature engineering</li>
+    </ul>
+    <p style="margin-top:10px;color:var(--muted);font-size:.9rem"><strong>Project:</strong> Build a predictive model on real data</p>
+   </div>
+
+   <div class="stage">
+    <h4>Stage 3: Deep Learning & Specialization</h4>
+    <div class="stage-level">8–12 weeks</div>
+    <ul>
+     <li>Deep learning (TensorFlow, PyTorch)</li>
+     <li>Neural networks</li>
+     <li>NLP or Computer Vision specialization</li>
+     <li>Model deployment</li>
+    </ul>
+    <p style="margin-top:10px;color:var(--muted);font-size:.9rem"><strong>Project:</strong> Build a deep learning project (image classification, text analysis)</p>
+   </div>
+
+   <div class="duration">⏱️ Total Time: 5–7 months | Ready for: Data Science roles, ML Engineer roles</div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>Tips for Following a Roadmap</h2>
+  
+  <div class="grid">
+   <div class="card">
+    <div class="icon">🎯</div>
+    <h3>Pick ONE Skill</h3>
+    <p>Focus on one roadmap at a time. Don't try to learn React + Python + AWS simultaneously.</p>
+   </div>
+   <div class="card">
+    <div class="icon">⏰</div>
+    <h3>Consistent Practice</h3>
+    <p>30–60 minutes daily beats 5 hours once a week. Build habits.</p>
+   </div>
+   <div class="card">
+    <div class="icon">🏗️</div>
+    <h3>Build at Each Stage</h3>
+    <p>Don't skip projects. Building reinforces learning 10x better than tutorials.</p>
+   </div>
+   <div class="card">
+    <div class="icon">📝</div>
+    <h3>Keep a Learning Log</h3>
+    <p>Document what you learn. Review it weekly. Helps cement understanding.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <div style="background:rgba(110,231,255,.08);border:1px solid rgba(110,231,255,.2);border-radius:16px;padding:40px;text-align:center">
+   <h2>Which Skill Will You Learn First?</h2>
+   <p style="color:var(--muted);font-size:1rem;margin:15px 0">Pick a roadmap above and start Stage 1 this week. Share your progress!</p>
+   <a class="btn primary" href="career-paths.html" style="margin-top:20px">See Which Skills Matter Most →</a>
+  </div>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <div class="container footerin">
+  <div>© <span id="year"></span> SkillForge. AI Student Career Hub.</div>
+  <div class="social"><a href="index.html">Home</a><a href="skill-roadmaps.html">Skills</a><a href="resources.html">Resources</a></div>
+ </div>
+</footer>
+
+<script>
+function toggleMenu(){
+ const m=document.getElementById('mobileLinks');
+ m.style.display=m.style.display==='none'?'flex':'none';
+}
+document.getElementById('year').textContent=new Date().getFullYear();
+document.querySelectorAll('#mobileLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mobileLinks').style.display='none'));
+</script>
+</body>
+</html>
